@@ -400,6 +400,10 @@ to **src/Model/Table/BookmarksTable.php**::
         return $out;
     }
 
+The code above should be manipulated to account for invalid tag entry cases.
+Currently, "Cats" and "cats" are separated by PHP as unique values and thus not thrown out before being sent to the database.
+When sent to the database, an error is thrown because the tag title is not case sensitive.
+
 While this code is a bit more complicated than what we've done so far, it helps
 to showcase how powerful the ORM in CakePHP is. You can manipulate query
 results using the :doc:`/core-libraries/collections` methods, and handle
